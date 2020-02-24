@@ -1,0 +1,6 @@
+use_frameworks!
+target 'MMSwiftDrawer_Tests' do
+  pod 'MMSwiftDrawer', :path => '../'
+  
+  
+end
