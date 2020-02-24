@@ -11,8 +11,6 @@ import UIKit
     @objc optional func drawerController(_ drawerController: MMSwiftDrawer, willChangeState state: MMSwiftDrawer.DrawerState)
     @objc optional func drawerController(_ drawerController: MMSwiftDrawer, didChangeState state: MMSwiftDrawer.DrawerState)
 
-    @available(*, deprecated, renamed: "drawerController(_:didChangeState:)")
-    @objc optional func drawerController(_ drawerController: MMSwiftDrawer, stateChanged state: MMSwiftDrawer.DrawerState)
 }
 
 open class MMSwiftDrawer: UIViewController, UIGestureRecognizerDelegate {
@@ -393,7 +391,8 @@ open class MMSwiftDrawer: UIViewController, UIGestureRecognizerDelegate {
                 if let didChangeState = self.delegate?.drawerController(_:didChangeState:) {
                     didChangeState(self, state)
                 } else {
-                    self.delegate?.drawerController?(self, stateChanged: state)
+                  //  self.delegate?.drawerController?(self, didChangeState: state)
+                     self.delegate?.drawerController?(self, didChangeState: state)
                 }
         }
     }
